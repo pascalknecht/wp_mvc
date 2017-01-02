@@ -1,0 +1,17 @@
+{
+  "name": "pascalknecht/wp_mvc",
+  "type": "library",
+  "description": "WordPress MVC Base",
+  "homepage": "http://www.doctrine-project.org",
+  "license": "MIT",
+  "authors": [
+    {"name": "Pascal Knecht", "email": "pascal.knecht99@gmail.com"}
+  ],
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "pascalknecht/wp-router": "*"
+  },
+  "autoload": {
+    "psr-4": { "WPMVC\\": "lib/WPMVC" }
+  }
+}
