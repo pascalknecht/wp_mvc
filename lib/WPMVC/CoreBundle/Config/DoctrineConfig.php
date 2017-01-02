@@ -1,5 +1,5 @@
 <?php
-namespace CoreBundle\Config;
+namespace WPMVC\CoreBundle\Config;
 
 class DoctrineConfig {
     public static function getDoctrineConf() {
@@ -17,7 +17,7 @@ class DoctrineConfig {
             new \Doctrine\Common\Annotations\AnnotationReader(),
             array(MVC_Entity_Path . 'Entity')
         );
-        
+
         $ormconfig->setMetadataDriverImpl($driver);
         $ormconfig->setMetadataCacheImpl($cache);
 
