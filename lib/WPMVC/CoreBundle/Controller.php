@@ -45,9 +45,11 @@ class Controller {
         $classLoader->register();
     }
 
-    public function redirect($id, $arguments) {
-        $url = \WP_Router::get_url($id, $arguments);
+    public function redirect($id, $arguments = array() ) {
+        $router = \WP_Router::get_instance();
+        $url = $router->get_url( $id );
         wp_redirect($url);
+        exit;
     }
 
 
