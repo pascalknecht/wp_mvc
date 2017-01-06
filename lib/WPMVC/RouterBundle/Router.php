@@ -2,7 +2,7 @@
 namespace WPMVC\RouterBundle;
 
 class Router {
-    public static function add_route( $route, $controller, $method ) {
+    public static function add_route( $route_name, $route, $controller, $method ) {
         $controller_file_name = MVC_Controller_Path . $controller . '.php';
         // Throw error if not found
         if( !file_exists( $controller_file_name ) ) {
@@ -11,10 +11,10 @@ class Router {
         // Include Controller
         include_once( $controller_file_name );
 
-        add_action( 'wp_router_generate_routes', function( $router ) use( $route, $controller, $method ) {
+        add_action( 'wp_router_generate_routes', function( $router ) use( $route_name, $route, $controller, $method ) {
             $controller_class_name = '\\' . $controller;
             $router->add_route(
-                'test_route', array(
+	            $route_name, array(
                     'path' => $route,
                     'query_vars' => array(),
                     'page_callback' => array( new $controller_class_name, $method ),
