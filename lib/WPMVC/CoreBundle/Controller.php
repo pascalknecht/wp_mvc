@@ -36,6 +36,9 @@ class Controller {
             $this->twig->addExtension(new \Twig_Extension_Debug());
         }
 
+        // Add WordPress Integration
+        $this->twig->addFilter(new \Twig_SimpleFilter('function', array($this, 'exec_function')));
+
     }
 
     protected function loadDoctrine(){
@@ -50,6 +53,15 @@ class Controller {
         $url = $router->get_url( $id );
         wp_redirect($url);
         exit;
+    }
+
+    public function exec_function( $function_name ) {
+        $args = func_get_args();
+        array_shift($args);
+        if ( is_string($function_name) ) {
+            $function_name = trim($function_name);
+        }
+        return call_user_func_array($function_name, ($args));
     }
 
 
