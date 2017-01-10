@@ -37,8 +37,7 @@ class Controller {
         }
 
         // Add WordPress Integration
-        $this->twig->addFilter(new \Twig_SimpleFilter('function', array($this, 'exec_function')));
-
+        $this->twig->addFunction(new \Twig_SimpleFunction('function', array(&$this, 'exec_function')));
     }
 
     protected function loadDoctrine(){
