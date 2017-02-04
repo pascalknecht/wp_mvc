@@ -54,9 +54,20 @@ class Controller {
         exit;
     }
 
+    public function loadHelper( $helperName ) {
+        $helperName = ucfirst( $helperName ) . 'Helper';
+        require_once( MVC_Helper_Path . $helperName );
+    }
+
+    public function loadFormType( $formTypeName) {
+        $formTypeName = ucfirst( $formTypeName ) . 'Type';
+        require_once( MVC_Form_Path . $formTypeName );
+    }
+
     public function exec_function( $function_name ) {
         $args = func_get_args();
         array_shift($args);
+
         if ( is_string($function_name) ) {
             $function_name = trim($function_name);
         }
