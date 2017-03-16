@@ -6,6 +6,8 @@ use WPMVC\CoreBundle\Config\DoctrineConfig;
 
 class Controller {
 
+    protected $page_title = 'Page Title';
+
     protected $twig;
 
     protected $doctrine;
@@ -67,11 +69,24 @@ class Controller {
     public function exec_function( $function_name ) {
         $args = func_get_args();
         array_shift($args);
-
         if ( is_string($function_name) ) {
             $function_name = trim($function_name);
         }
         return call_user_func_array($function_name, ($args));
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPageTitle() {
+        return $this->page_title;
+    }
+
+    /**
+     * @param mixed $page_title
+     */
+    public function setPageTitle($page_title) {
+        $this->page_title = $page_title;
     }
 
 
