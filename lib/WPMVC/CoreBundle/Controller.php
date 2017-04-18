@@ -65,6 +65,16 @@ class Controller {
         exit;
     }
 
+    public function loadHelper( $helperName ) {
+        $helperName = ucfirst( $helperName ) . 'Helper';
+        require_once( MVC_Helper_Path . $helperName );
+    }
+
+    public function loadFormType( $formTypeName) {
+        $formTypeName = ucfirst( $formTypeName ) . 'Type';
+        require_once( MVC_Form_Path . $formTypeName );
+    }
+
     public function exec_function( $function_name ) {
         $args = func_get_args();
         array_shift($args);
@@ -129,6 +139,5 @@ class Controller {
     public function setWpseoMetakey($wpseo_metakey) {
         $this->wpseo_metakey = $wpseo_metakey;
     }
-
 
 }
