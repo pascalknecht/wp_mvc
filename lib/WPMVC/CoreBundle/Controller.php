@@ -8,6 +8,15 @@ class Controller {
 
     protected $page_title = 'Page Title';
 
+    /* YOAST SEO Features */
+    protected $wpseo_title;
+
+    protected $wpseo_metadesc;
+
+    protected $wpseo_metakey;
+
+    /* End YOAST */
+
     protected $twig;
 
     protected $doctrine;
@@ -43,7 +52,7 @@ class Controller {
     }
 
     protected function loadDoctrine(){
-        $this->doctrine = DoctrineConfig::getDoctrineConf();
+        $this->doctrine = DoctrineConfig::getDoctrine();
         // Load Models
         $classLoader = new \Doctrine\Common\ClassLoader('Entity', MVC_Entity_Path );
         $classLoader->register();
@@ -89,5 +98,46 @@ class Controller {
         $this->page_title = $page_title;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getWpseoTitle() {
+        return $this->wpseo_title;
+    }
+
+    /**
+     * @param mixed $wpseo_title
+     */
+    public function setWpseoTitle($wpseo_title) {
+        $this->wpseo_title = $wpseo_title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWpseoMetadesc() {
+        return $this->wpseo_metadesc;
+    }
+
+    /**
+     * @param mixed $wpseo_metadesc
+     */
+    public function setWpseoMetadesc($wpseo_metadesc) {
+        $this->wpseo_metadesc = $wpseo_metadesc;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWpseoMetakey() {
+        return $this->wpseo_metakey;
+    }
+
+    /**
+     * @param mixed $wpseo_metakey
+     */
+    public function setWpseoMetakey($wpseo_metakey) {
+        $this->wpseo_metakey = $wpseo_metakey;
+    }
 
 }

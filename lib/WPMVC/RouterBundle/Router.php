@@ -1,4 +1,5 @@
 <?php
+
 namespace WPMVC\RouterBundle;
 
 class Router {
@@ -21,7 +22,6 @@ class Router {
             ob_end_clean();
 
             $page_title = $controller->getPageTitle();
-
             $router->add_route(
                 $route_name, array(
                     'path' => $route,
