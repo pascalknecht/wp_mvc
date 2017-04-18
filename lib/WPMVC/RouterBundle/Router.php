@@ -2,9 +2,6 @@
 
 namespace WPMVC\RouterBundle;
 
-use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Annotations\AnnotationRegistry;
-
 class Router {
     public static function add_route( $route_name, $route, $controller, $method ) {
         $controller_file_name = MVC_Controller_Path . $controller . '.php';
