@@ -2,7 +2,7 @@
 namespace WPMVC\CoreBundle\Config;
 
 class DoctrineConfig {
-    public static function getDoctrineConf() {
+    public static function getDoctrine() {
         // Doctrine ORM
         $ormconfig = new \Doctrine\ORM\Configuration();
         $cache = new \Doctrine\Common\Cache\ArrayCache();
